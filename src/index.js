@@ -1,3 +1,4 @@
+import 'normalize.css';
 import './style';
 import App from './containers/App';
 
