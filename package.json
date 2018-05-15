@@ -34,6 +34,7 @@
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
+    "html5-boilerplate": "^6.1.0",
     "normalize.css": "^8.0.0",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
