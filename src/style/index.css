@@ -37,11 +37,11 @@ body {
 
 .page-app {
   min-height: 100vh;
+  background-color: var(--primary-dark);
 }
 
 .page-content {
   padding: 20px;
-  background-color: var(--primary);
 }
 
 .page-main {

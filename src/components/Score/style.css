@@ -1,4 +1,7 @@
 .score {
   text-align: center;
-  padding: 20px 0;
+  padding: 6px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: var(--text);
 }
