@@ -88,8 +88,8 @@ export default class Game extends Component {
             </div>
           </main>
 
-          {!start && <Overlay><button onClick={this.handleClickButton} type="button">Start</button></Overlay>}
-          {win && <Overlay><h1>You win!</h1><button onClick={this.resetGame} type="button">Restart?</button></Overlay>}
+          {!start && <Overlay><button class="button" onClick={this.handleClickButton} type="button">Start</button></Overlay>}
+          {win && <Overlay><h1>You win!</h1><button class="button" onClick={this.resetGame} type="button">Restart?</button></Overlay>}
         </div>
       </div>
     );

@@ -44,7 +44,26 @@ body {
   padding: 20px;
 }
 
-.page-main {
-  padding: 20px;
+.button {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  color: var(--text);
+  border-radius: 2em;
+  font-weight: normal;
+  min-width: 100px;
+}
+
+.letter-wrap {
+  font-size: 50vh;
+  text-align: center;
+  font-family: serif;
+  text-transform: uppercase;
   background-color: var(--primary);
 }
