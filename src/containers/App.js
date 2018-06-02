@@ -1,8 +1,9 @@
 import { h, Component } from 'preact';
 import { LIST } from '../helpers/letters';
 
-import Score from '../components/Score/index';
+import ScoreBar from '../components/ScoreBar/index';
 import Overlay from '../components/Overlay/index';
+import Timer from '../components/Timer/index';
 
 if (module.hot) {
   require('preact/debug');
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
   win: false,
   score: 0,
   letter: '',
+  time: 0,
   list: [...LIST]
 };
 
@@ -24,6 +26,7 @@ export default class Game extends Component {
     });
 
     this.generateLetter();
+    this.startTimer();
     window.addEventListener('keydown', this.typing);
   }
 
@@ -53,6 +56,7 @@ export default class Game extends Component {
   }
 
   winGame() {
+    clearInterval(this.timer);
     window.removeEventListener('keydown', this.typing);
 
     this.setState({
@@ -65,6 +69,19 @@ export default class Game extends Component {
     this.handleClickButton();
   }
 
+  startTimer() {
+    this.setState({
+      startTime: new Date()
+    });
+
+    this.timer = setInterval(() => {
+      const time = new Date() - this.state.startTime;
+      this.setState({
+        time
+      });
+    }, 1);
+  }
+
   constructor(props) {
     super(props);
 
@@ -74,13 +91,15 @@ export default class Game extends Component {
     this.typing = this.typing.bind(this);
     this.winGame = this.winGame.bind(this);
     this.resetGame = this.resetGame.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.timer = null;
   }
 
   render() {
-    const { score, letter, start, win } = this.state;
+    const { score, letter, start, win, time } = this.state;
     return (
       <div class="page-app">
-        <Score score={score} />
+        <ScoreBar score={score} time={time} />
         <div class="page-content">
           <main class="page-main wrapper">
             <div class="letter-wrap">
@@ -89,7 +108,7 @@ export default class Game extends Component {
           </main>
 
           {!start && <Overlay><button class="button" onClick={this.handleClickButton} type="button">Start</button></Overlay>}
-          {win && <Overlay><h1>You win!</h1><button class="button" onClick={this.resetGame} type="button">Restart?</button></Overlay>}
+          {win && <Overlay><h1>You win!</h1><p><Timer time={time} /></p><button class="button" onClick={this.resetGame} type="button">Restart?</button></Overlay>}
         </div>
       </div>
     );
