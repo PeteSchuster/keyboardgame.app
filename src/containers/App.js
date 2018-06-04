@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import ReactGA from 'react-ga';
+
 import { LIST } from '../helpers/letters';
 
 import ScoreBar from '../components/ScoreBar/index';
@@ -93,6 +95,11 @@ export default class Game extends Component {
     this.resetGame = this.resetGame.bind(this);
     this.startTimer = this.startTimer.bind(this);
     this.timer = null;
+  }
+
+  componentDidMount() {
+    ReactGA.initialize('UA-26331940-3');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   render() {

@@ -38,7 +38,8 @@
     "normalize.css": "^8.0.0",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.7"
+    "preact-router": "^2.5.7",
+    "react-ga": "^2.5.3"
   },
   "jest": {
     "verbose": true,
