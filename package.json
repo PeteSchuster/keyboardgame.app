@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "typing-game",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "license": "MIT",
   "homepage": "https://s3.amazonaws.com/typing-game-825/",
   "scripts": {
